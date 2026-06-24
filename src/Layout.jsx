@@ -15,7 +15,7 @@ export default function Layout() {
         </Link>
         <nav className="linksNav">
           <Link to="/" className="link">Strona Główna</Link>
-          <Link to="/" className="link">Wyjazdy</Link>
+          <Link to="/wyjazdy" className="link">Wyjazdy</Link>
           <Link to="/" className="link">Nauka Jazdy</Link>
           <Link to="/" className="link">O mnie</Link>
         </nav>

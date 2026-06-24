@@ -49,7 +49,7 @@ export default function Homepage() {
                 </h1>
                 <p>Wyjazdy quadami po dzikiej Islandii. Trening, adrenalina, przygoda - w małych grupach, z pasją.</p>
                 <button className={styles.btnMain}>
-                    <Link className={styles.btnLinkMain} to="/">ZOBACZ WIĘCEJ</Link>
+                    <Link className={styles.btnLinkMain} to="/wyjazdy">ZOBACZ WIĘCEJ</Link>
                 </button>
             </div> 
         </main>
@@ -160,7 +160,7 @@ export default function Homepage() {
         <div className={styles.tripsInfo}>
             <h1>Wyjazdy na quadach</h1>
             <p>Od szkolenia po wielodniowe wyprawy po dzikiej islandii.</p>
-            <button>Zobacz więcej</button>
+            <button ><Link className={styles.btnLinkMain} to="/wyjazdy">ZOBACZ WIĘCEJ</Link></button>
         </div>
         <div className={styles.trip}>
             <img src={trip1}></img>
