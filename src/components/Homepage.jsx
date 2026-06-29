@@ -1,5 +1,5 @@
 import styles from "./Homepage.module.css";
-import mainVideo from "../assets/videos/main.mp4"
+import mainVideo from "../assets/videos/mainVideo.mp4"
 import { Outlet, Link } from "react-router-dom";
 
 import miniQuadIcon from "../assets/icons/miniQuadIcon.png"
@@ -31,16 +31,15 @@ import land10 from "../assets/landscapes/land10.jpg"
 import land11 from "../assets/landscapes/land11.jpg"
 
 export default function Homepage() {
+    
   return (
     <>
                                         {/* Pierwsza sekcja, filmik */}
-
+    <video autoPlay muted loop playsInline className={styles.main_video}>
+                <source src={mainVideo} type="video/mp4"/>
+    </video>
     <div className={styles.mainBox}>
         <main>
-            <video autoPlay muted loop playsInline className={styles.main_video}>
-                <source src={mainVideo} type="video/mp4"/>
-            </video>
-
             <div className={styles.mainText}>
                 <h1 className={styles.mainTitle}>
                     <span>WYJAZDY</span> 
@@ -81,7 +80,7 @@ export default function Homepage() {
             </div>
         </div>
         <div className={styles.sideSection}>
-            <Link className={styles.btnLinkMain} to="/">
+            <Link className={styles.btnLinkMain} to="/wyjazdy/wyjazd_1dzien">
                 <div className={styles.sideIconBox}>
                     <img src={quadIcon} className={styles.sideIcon}></img>
                     <div className={styles.textSideSection}>
@@ -94,6 +93,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </Link>
+            <Link className={styles.btnLinkMain} to="/wkrotce">
             <div className={styles.sideIconBox}>
                 <img src={offRoad} className={styles.sideIcon}></img>
                 <div className={styles.textSideSection}>
@@ -106,6 +106,8 @@ export default function Homepage() {
                     </p>
                 </div>
             </div>
+            </Link>
+            <Link className={styles.btnLinkMain} to="/wkrotce">
             <div className={styles.sideIconBox}>
                 <img src={offRoad} className={styles.sideIcon}></img>
                 <div className={styles.textSideSection}>
@@ -118,6 +120,7 @@ export default function Homepage() {
                     </p>
                 </div>
             </div>
+            </Link>
         </div>
     </section>
 

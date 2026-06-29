@@ -10,6 +10,9 @@ hr{
     border: none;
     margin: 3em auto;
 }
+option{
+    background-color: rgb(0, 0, 0);
+}
 
 /* MAIN */
 
@@ -40,8 +43,8 @@ hr{
     margin-top: 0;
     width: 100%;
     display: flex;
-    align-items: center;
-    min-height: 35em;
+    align-items: stretch;
+    min-height: 25em;
 }
 
 main{
@@ -55,19 +58,19 @@ main{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 75vh;
     object-fit: cover;
     z-index: -1;
 
     mask-image: linear-gradient(
         to bottom,
-        black 35%,
+        black 15%,
         transparent 100%
     );
 
     -webkit-mask-image: linear-gradient(
         to bottom,
-        black 35%,
+        black 15%,
         transparent 100%
     );
 }
@@ -87,9 +90,9 @@ main{
 .mainTitle{
     line-height: 1em;
     color: white;
-    text-shadow: 0 0 0.06em black;
+    text-shadow: 0 0 0.1em black;
     font-size: 2.5em;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0;
 }
 
@@ -97,7 +100,7 @@ main{
     font-size: 0.45em;
     text-align: center;
     color: rgb(0, 0, 0);
-    text-shadow: 0 0 1em white;
+    text-shadow: 0 0 1px white;
     line-height: .9em;
 }
 
@@ -134,7 +137,7 @@ main{
 
 .sectionIcons{
     display: flex;
-    flex-wrap: wrap;
+    
     justify-content: center;
     gap: 2em;
 }
@@ -148,11 +151,11 @@ main{
 }
 
 .miniIconBox p{
-    font-size: 0.85em;
+    font-size: 0.7rem;
 }
 
 .miniIcon{
-    width: 2.5em;
+    width: 4.5vw;
     padding: 0.7em;
     border-radius: 50%;
     background-color: rgb(255, 105, 105);
@@ -179,20 +182,20 @@ main{
 }
 
 .titleSideSection{
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 .infoSideSection{
-    font-size: 0.75em;
+    font-size: 0.75rem;
 }
 
 .sectionSoon{
-    font-size: 0.6em;
+    font-size: 0.6rem;
 }
 
 .sideIcon{
-    width: 3.5em;
-    height: 3.5em;
+    width: 7.5vw;
+    height: 7.5vw;
     background-color: rgba(255,255,255,.957);
     padding: 1.2em;
     border-radius: 14px;
@@ -206,15 +209,15 @@ main{
     width: 100%;
     max-width: 90em;
     padding: .5em 1em;
-    font-size: .8em;
+    font-size: .8rem;
     box-sizing: border-box;
 }
 
 .steps{
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 3em;
+    justify-content: center;
 }
 
 .step{
@@ -223,12 +226,14 @@ main{
     align-items: center;
     text-align: center;
 }
-
+.stepText{
+    font-size: .5rem;
+}
 .step img{
     background-color: white;
     padding: 1em;
     border-radius: 20px;
-    width: 5em;
+    width: 5vw;
 }
 
 /* TRIPS */
@@ -344,7 +349,7 @@ main{
 
 .quads{
     display: flex;
-    flex-direction: column;
+    
     gap: 2em;
 }
 
@@ -395,6 +400,16 @@ main{
     border-radius: 20px;
 }
 
+@media (min-width: 760px){
+.trips{
+    flex-direction: row;
+    font-size: .8rem;
+}
+.quads{
+    flex-direction: row;
+}
+}
+
 /* DESKTOP */
 
 @media (min-width: 1000px){
@@ -434,7 +449,9 @@ main{
         gap: 2em;
         padding: 0 8.5em;
     }
-
+    .sectionInfo img{
+        width: 3vw;
+    }
     .sectionText{
         grid-area: 1/1/2/2;
         justify-self: center;
@@ -450,7 +467,10 @@ main{
     .sideSection{
         grid-area: 1/2/3/3;
     }
-
+    .sideSection img{
+        width: 3.5vw;
+        height: 3.5vw;
+    }
     .booking{
         padding: .5em 2em;
     }
@@ -459,6 +479,9 @@ main{
         flex-direction: row;
         justify-content: center;
         gap: 10em;
+    }
+    .step img{
+        width: 4vw;
     }
 
     .trips{

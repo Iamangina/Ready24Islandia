@@ -1,27 +1,27 @@
 import { Outlet, Link } from "react-router-dom";
+import { useState } from "react";
 import logo from "./assets/logo.png";
-import "./index.css"
+import "./index.css";
 
 export default function Layout() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <header className="header">
-        <Link to="/">
-          <img
-            src={logo}
-            alt="Logo"
-            className="logo"
-          />
-        </Link>
-        <nav className="linksNav">
+        <Link to="/" className="link"><img src={logo} className="logo" /></Link> 
+
+        <button className="menuBtn" onClick={() => setOpen(!open)}>
+          ☰
+        </button>
+
+        <nav className={`linksNav ${open ? "active" : ""}`}>
           <Link to="/" className="link">Strona Główna</Link>
           <Link to="/wyjazdy" className="link">Wyjazdy</Link>
-          <Link to="/" className="link">Nauka Jazdy</Link>
-          <Link to="/" className="link">O mnie</Link>
+          <Link to="/szkolenia" className="link">Szkolenia</Link>
+          <Link to="/omnie" className="link">O mnie</Link>
+          <button className="rezerwacjaBtn">Zarezerwuj</button>
         </nav>
-        <Link to="/">
-            <button className="rezerwacjaBtn">Zarezerwuj</button>
-        </Link>
       </header>
 
       <main>
@@ -30,12 +30,16 @@ export default function Layout() {
 
       <footer>
         <nav className="linksFooter">
-            <Link to="/" className="link">Strona Główna</Link>
-            <Link to="/" className="link">Wyjazdy</Link>
-            <Link to="/" className="link">Nauka Jazdy</Link>
-            <Link to="/" className="link">O mnie</Link>
+          <Link to="/" className="link">Strona Główna</Link>
+          <Link to="/wyjazdy" className="link">Wyjazdy</Link>
+          <Link to="/szkolenia" className="link">Nauka Jazdy</Link>
+          <Link to="/omnie" className="link">O mnie</Link>
         </nav>
-        <p>Design i wykonanie: <a href="https://github.com/Iamangina">Angelika Kowalik</a></p>
+
+        <p>
+          Design i wykonanie:{" "}
+          <a href="https://github.com/Iamangina">Angelika Kowalik</a>
+        </p>
       </footer>
     </>
   );

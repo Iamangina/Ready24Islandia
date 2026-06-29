@@ -11,13 +11,14 @@ import calendarIcon from "../assets/icons/calendarIcon.png"
 import bookingIcon from "../assets/icons/bookingIcon.png"
 import paymentIcon from "../assets/icons/paymentIcon.png"
 
+
 export default function Trips(){
     return (
         <>
             <section className={styles.tripsPage}>
                 <div className={styles.tripsPageInfoBox}>
                     <p>Strona Główna &gt; Wyjazdy</p>
-                    <h1>Wyjazdy quadami po Islandii</h1>
+                    <h1>WYJAZDY NA QUADACH W ISLANDII</h1>
                     <h2>Odkryj Islandię z innej perspektywy. 
                         Wyjazdy quadowe skierowane głównie do osób posiadających już doświadczenie w jeździe. 
                         Każda trasa to niezapomniane widoki, emocje i bezpieczeństwo.</h2>
@@ -29,14 +30,14 @@ export default function Trips(){
 
                         <div>
                             <label for="trip">Długość wyjazdu</label>
-                            <select name="trip" id="trip">
+                            <select name="trip" id="trip" className={styles.select}>
                                 <option value="" disabled selected>Wybierz</option>
                                 <option value="1day">1 dzień</option>
                             </select>
                         </div>
                         <div>
                             <label for="level">Poziom trudności</label>
-                            <select name="level" id="level">
+                            <select name="level" id="level" className={styles.select}> 
                                 <option value="" disabled selected>Wybierz</option>
                                 <option value="explorer">Explorer</option>
                                 <option value="adventurer">Adventurer</option>
@@ -45,7 +46,7 @@ export default function Trips(){
                         </div>
                         <div>
                             <label for="people">Liczba osób</label>
-                            <select name="people" id="people">
+                            <select name="people" id="people" className={styles.select}>
                                 <option value="" disabled selected>Wybierz</option>
                                 <option value="1">1 osoba</option>
                                 <option value="2">2 osoby</option>
@@ -65,19 +66,19 @@ export default function Trips(){
                             <h2>Wyjazd 1-dniowy ze szkoleniem</h2>
                             <p>min. 2h</p>
                             <h3>Idealny wybór jeżeli chcesz przetestować swoje umiejętności na torze, nauczyć się czegoś nowego a przy okazji dobrze się bawić.</h3>
-                            <button> Zobacz szczegóły &gt;</button>
+                            <Link to="/wyjazdy/wyjazd_1dzien"><button> Zobacz szczegóły &gt;</button></Link>
                         </div>
                         <div className={styles.tripsPageTrip} id={styles.threedays}>
                             <h2>3-dniowa wyprawa</h2>
                             <p>3dni - Wkrótce </p>
                             <h3>Więcej przygód, więcej miejsc do odkrycia. Idealna dla osób z doświadczeniem.</h3>
-                            <button> Zobacz szczegóły &gt;</button>
+                            <Link to="/wkrotce"><button> Zobacz szczegóły &gt;</button></Link>
                         </div>
                         <div className={styles.tripsPageTrip} id={styles.fivedays}>
                             <h2>5-dniowa wyprawa</h2>
                             <p>5dni - Wkrótce </p>
                             <h3>Najlepsze trasy, prawdziwa Islandia. Adrenalina i walka z samym sobą. Dla doświadczonych quadowców.</h3>
-                            <button> Zobacz szczegóły &gt;</button>
+                            <Link to="/wkrotce"><button> Zobacz szczegóły &gt;</button></Link>
                         </div>
                     </div>
                 </section>

@@ -1,0 +1,239 @@
+hr {
+    width: 8em;
+    height: .3em;
+    background-color: rgb(255, 105, 105);
+    border-radius: 20px;
+    border: none;
+    margin: 2em auto;
+}
+
+.aboutPage {
+    min-height: 50vh;
+    background: url("../assets/images/pho4.jpg") top 60% center/cover no-repeat;
+    position: relative;
+}
+
+.aboutPage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, black 100%);
+}
+
+.aboutBox {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 8%;
+    text-shadow: 0 0 .5em black;
+}
+
+.aboutBox h1 {
+    font-size: 2.3rem;
+    margin-bottom: .3em;
+}
+
+.aboutBox h2 {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.aboutBox p {
+    font-size: .95rem;
+    line-height: 1.6;
+}
+.myStoryBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 8%;
+}
+
+.myStoryBox img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.myStoryBox p {
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    margin-top: 1rem;
+}
+
+.myStory {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.valuesBox {
+    padding: 0 8%;
+    text-align: center;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.value img {
+    width: 70px;
+}
+
+.value h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.value p {
+    margin-top: 0;
+    font-size: .9rem;
+    width: 100%;
+}
+
+.aboutMe {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 8%;
+}
+
+.aboutMeText {
+    width: 100%;
+}
+
+.aboutMePhotos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.aboutMePhotos img,
+.aboutMePhotos video {
+    width: 45%;
+    max-width: 180px;
+    transition: transform .3s ease;
+    cursor: pointer;
+    border: 1.5px solid rgb(255, 105, 105);
+    border-radius: 20px;
+    background-color: black;
+}
+
+.aboutMePhotos img:hover,
+.aboutMePhotos video:hover {
+    transform: scale(1.1);
+}
+
+.aboutMeQuestions {
+    background-image: url("../assets/landscapes/land10.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 1rem 8%;
+    width: 100%;
+    text-shadow: 0 0 4px black;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+@media (min-width: 728px){
+    .values{
+        flex-direction: row;
+    }
+}
+@media (min-width: 1024px) {
+
+    hr {
+        width: 10em;
+        margin: 3em auto;
+    }
+
+    .aboutBox {
+        max-width: 600px;
+        padding: 7rem 8%;
+    }
+
+    .aboutBox h1 {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+    }
+
+    .aboutBox h2 {
+        font-size: 1.1rem;
+    }
+
+    .aboutBox p {
+        font-size: .9rem;
+    }
+
+    .myStoryBox {
+        flex-direction: row;
+    }
+
+    .myStoryBox img {
+        min-width: 35vw;
+    }
+
+    .myStory {
+        justify-content: space-evenly;
+    }
+
+    .values {
+        flex-direction: row;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    .value {
+        width: 15vw;
+    }
+
+    .value img {
+        width: 4vw;
+    }
+
+    .value p {
+        width: 12vw;
+        font-size: .7rem;
+    }
+
+    .aboutMe {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .aboutMeText {
+        width: 40%;
+    }
+
+    .aboutMePhotos {
+        flex-wrap: nowrap;
+    }
+
+    .aboutMePhotos img,
+    .aboutMePhotos video {
+        width: 15vw;
+        max-width: none;
+    }
+
+    .aboutMePhotos img:hover,
+    .aboutMePhotos video:hover {
+        transform: translate(-50%, -50%) scale(2);
+    }
+
+    .aboutMeQuestions {
+        width: 50vw;
+        padding: 1% 8%;
+    }
+}

@@ -1,45 +1,65 @@
-body{
+body {
     margin: 0;
     font-family: Montserrat;
     background-color: black;
 }
 
-#root{
+#root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* MOBILE FIRST */
-
-.header{
+/* HEADER MOBILE */
+.header {
     display: flex;
-    flex-direction: column;
-    gap: 1.5em;
+    justify-content: space-between;
     align-items: center;
     background-color: black;
-    margin: 0;
     padding: 1em;
+    position: relative;
 }
 
-.logo{
+.logo {
     width: 140px;
 }
 
-.linksNav,
-.linksFooter{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5em;
+/* HAMBURGER */
+.menuBtn {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
-.link{
+/* NAWIGACJA MOBILE (UKRYTA DOMYŚLNIE) */
+.linksNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: black;
+    z-index: 3;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    padding: 1em 0;
+}
+
+/* OTWIERANE MENU */
+.linksNav.active {
+    display: flex;
+}
+
+.link {
     color: white;
     text-decoration: none;
 }
 
-.rezerwacjaBtn{
+.rezerwacjaBtn {
     border: none;
     border-radius: 20px;
     background-color: red;
@@ -51,15 +71,15 @@ body{
     text-shadow: 0 0 1px black;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
-main{
+main {
     flex: 1;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -70,32 +90,38 @@ footer{
     color: white;
     text-align: center;
 }
+.linksFooter{
+    display: flex;
+    gap: 2em;
+}
 
-a{
+a {
     color: rgba(255, 255, 255, 0.575);
     font-weight: 700;
     text-decoration: none;
 }
 
 /* DESKTOP */
+@media (min-width: 1000px) {
 
-@media (min-width: 1000px){
-
-    .header{
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .header {
         padding: 2px 90px;
-        gap: 0;
     }
 
-    .linksNav,
-    .linksFooter{
-        gap: 70px;
-        flex-wrap: nowrap;
+    .menuBtn {
+        display: none;
     }
 
-    footer{
+    .linksNav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        background: none;
+        padding: 0;
+    }
+
+    footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
