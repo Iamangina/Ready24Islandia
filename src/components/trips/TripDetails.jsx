@@ -4,6 +4,9 @@ import { useMemo, useState } from "react";
 import photo1 from "../../assets/landscapes/land11.jpg"
 import photo2 from "../../assets/landscapes/land10.jpg"
 import photo3 from "../../assets/images/pho1.jpg"
+import photo4 from "../../assets/landscapes/land8.jpg"
+import photo5 from "../../assets/landscapes/land9.jpg"
+import photo6 from "../../assets/images/pho2.jpg"
 
 import { useEffect, useRef } from "react";
 import styles from "./TripDetails.module.css"
@@ -29,16 +32,71 @@ const prices = {
 };
 
 export default function TripDetails(){
+
+const [email, setEmail] = useState("");
+const [phone, setPhone] = useState("");
+
+const [participantsData, setParticipantsData] = useState([
+  {
+    fullName: "",
+  },
+]);
+
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState("");
+
 const { id } = useParams();
 
 const [option, setOption] = useState("training");
   const [hours, setHours] = useState(6);
   const [participants, setParticipants] = useState(1);
   const [date, setDate] = useState("");
+  const [step, setStep] = useState(1);
 
   const totalPrice = useMemo(() => {
     return prices[option][hours] * participants;
   }, [option, hours, participants]);
+
+  const handleBooking = async () => {
+  setError("");
+  setLoading(true);
+
+  const booking = {
+    trip: id,
+    option,
+    hours,
+    date,
+    participants,
+
+    email,
+    phone,
+
+    participantsData,
+
+    totalPrice,
+  };
+
+  try {
+
+    const response = await fetch("http://localhost:5000/api/bookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    });
+
+    if (!response.ok) {
+      throw new Error("Błąd serwera");
+    }
+
+    setStep(3);
+  } catch (err) {
+    setError("Nie udało się wysłać formularza.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (id === "wyjazd_1dzien") {
     return(
@@ -100,7 +158,7 @@ const [option, setOption] = useState("training");
                         </div>
                     </div>
                 </section>
-                
+                 
                 <section className={styles.equipment}>
                     <h3>Co zabrać?</h3>
                     <div className={styles.allEquip}>
@@ -122,10 +180,11 @@ const [option, setOption] = useState("training");
                         </div>
                     </div>
                 </section>
-
                 <section className={styles.tripSide}>
                     <aside className={styles.bookingCard}>
 
+                {step === 1 ? (
+                    <>
                         <h2>Zarezerwuj swój wyjazd</h2>
 
                         <div className={styles.bookingSection}>
@@ -173,6 +232,16 @@ const [option, setOption] = useState("training");
                                 <option value={2}>2 godziny</option>
                                 <option value={4}>4 godziny</option>
                                 <option value={6}>6 godzin</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.levelSection}>
+                            <h4>Poziom trudności</h4>
+
+                            <select className={styles.level} value="level">
+                                <option value="explorer">Explorer</option>
+                                <option value="adventurer">Adventurer</option>
+                                <option value="extremeRider">Extreme Rider</option>
                             </select>
                         </div>
 
@@ -234,15 +303,140 @@ const [option, setOption] = useState("training");
 
                         </div>
 
-                        <button className={styles.primaryButton}>
+                        <button
+                            className={styles.primaryButton}
+                            onClick={() => {
+                                if (!date || !hours || !option) return;
+                                setStep(2);
+                            }}
+                        >
                             Zarezerwuj teraz
                         </button>
+                    </>
+                ) : step === 2 ? (
+                    <>
+                        <h2>Dane rezerwacji</h2>
 
-                        <button className={styles.secondaryButton}>
-                            Zapytaj o dostępność
+                        <div className={styles.bookingSection}>
+                            <h4>Adres e-mail</h4>
+                            <input
+                                className={styles.input}
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Twój adres e-mail"
+                            />
+                        </div>
+
+                        <div className={styles.bookingSection}>
+                            <h4>Numer telefonu</h4>
+                            <input
+                                className={styles.input}
+                                type="tel"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                placeholder="+354..."
+                            />
+                        </div>
+
+                        {Array.from({ length: participants }).map((_, index) => (
+                            <div
+                                className={styles.bookingSection}
+                                key={index}
+                            >
+                                <h4>Imię i nazwisko uczestnika x {index + 1}</h4>
+
+                                <input
+                                    className={styles.input}
+                                    type="text"
+                                    value={participantsData[index]?.fullName || ""}
+                                    onChange={(e) => {
+                                        const updated = [...participantsData];
+                                        updated[index].fullName = e.target.value;
+                                        setParticipantsData(updated);
+                                    }}
+                                    placeholder="Imię i nazwisko uczestnika"
+                                />
+                            </div>
+                        ))}
+
+                        <div className={styles.priceBox}>
+
+                            <div className={styles.priceLabel}>
+                                <h3>Do zapłaty</h3>
+                            </div>
+
+                            <div className={styles.price}>
+                                {totalPrice.toLocaleString("is-IS")} kr
+                            </div>
+
+                            <span className={styles.priceInfo}>
+                                {hours} godzin • {participants}{" "}
+                                {participants === 1 ? "osoba" : "osoby"}
+                            </span>
+
+                        </div>
+                        {error && (
+                            <p style={{ color: "red", marginBottom: 15 }}>
+                                {error}
+                            </p>
+                        )}
+                        <button
+                            className={styles.primaryButton}
+                            onClick={handleBooking}
+                            disabled={loading}
+                        >
+                            {loading ? "Wysyłanie..." : "Potwierdź rezerwację"}
                         </button>
 
-                    </aside>
+                        <button
+                            className={styles.counterButton}
+                            style={{ marginTop: "12px", width: "100%" }}
+                            onClick={() => setStep(1)}
+                        >
+                            Wróć
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <div
+                            style={{
+                                textAlign: "center",
+                                padding: "30px 10px",
+                            }}
+                        >
+                            <h2>Dziękujemy!</h2>
+
+                            <p
+                                style={{
+                                    marginTop: "20px",
+                                    lineHeight: "1.7",
+                                }}
+                            >
+                                Dziękujemy za wysłanie formularza.
+                                <br />
+                                Skontaktujemy się z Tobą najszybciej, jak to
+                                możliwe, aby potwierdzić rezerwację oraz
+                                przekazać wszystkie szczegóły wyjazdu.
+                            </p>
+
+                            <button
+                                className={styles.primaryButton}
+                                style={{ marginTop: "30px" }}
+                                onClick={() => setStep(1)}
+                            >
+                                Nowa rezerwacja
+                            </button>
+                            <div className={styles.photosForm}>
+                                <img className={styles.photoForm} src={photo4}></img>
+                                <img className={styles.photoForm} src={photo5}></img>
+                                <img className={styles.photoForm} src={photo6}></img>
+                            </div>
+                        </div>
+                    </>
+                )}
+
+        </aside>
                 </section>
             </section>
             <section className={styles.lastSection}>
@@ -265,6 +459,3 @@ const [option, setOption] = useState("training");
   }
 
 }
-
-
-  ///<Link to="/wyjazdy/1dzien">

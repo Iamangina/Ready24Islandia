@@ -35,16 +35,16 @@ export default function Homepage() {
   return (
     <>
                                         {/* Pierwsza sekcja, filmik */}
-    <video autoPlay muted loop playsInline className={styles.main_video}>
-                <source src={mainVideo} type="video/mp4"/>
-    </video>
     <div className={styles.mainBox}>
+        <video autoPlay muted loop playsInline className={styles.main_video}>
+                <source src={mainVideo} type="video/mp4"/>
+        </video>
         <main>
             <div className={styles.mainText}>
                 <h1 className={styles.mainTitle}>
                     <span>WYJAZDY</span> 
                     <span>NA QUADACH</span> 
-                    <span className={styles.mainTitleSmall}>W ISLANDII</span> 
+                    <span>W ISLANDII</span> 
                 </h1>
                 <p>Wyjazdy quadami po dzikiej Islandii. Trening, adrenalina, przygoda - w małych grupach, z pasją.</p>
                 <button className={styles.btnMain}>

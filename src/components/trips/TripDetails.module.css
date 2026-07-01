@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 
 .tripOneDayPage {
     min-height: 45vh;
@@ -106,6 +109,8 @@
     cursor: pointer;
     transition: .25s;
     text-align: left;
+    font-size: 1rem;
+    color: white;
 }
 
 .optionCard.active {
@@ -113,8 +118,10 @@
 }
 
 select,
-input[type="date"] {
-    width: 100%;
+input[type="date"],
+.input {
+    color: white;
+    width: 18rem;
     box-sizing: border-box;
     background: rgba(255, 0, 0, .187);
     color: white;
@@ -132,7 +139,8 @@ input[type="date"] {
     padding: 8px;
 }
 
-.counter button {
+.counter button,
+.counterButton {
     width: 42px;
     height: 42px;
     border-radius: 10px;
@@ -143,7 +151,7 @@ input[type="date"] {
     font-size: 24px;
     transition: .2s;
 }
-
+ 
 .priceBox {
     border-top: 1px solid white;
     padding-top: 24px;
@@ -194,6 +202,7 @@ input[type="date"] {
     font-weight: 600;
     cursor: pointer;
     transition: .25s;
+    color: black;
 }
 
 .lastSection {
@@ -205,14 +214,14 @@ input[type="date"] {
 
 .photos {
     display: flex;
-    flex-direction: column;
     gap: 1rem;
+    justify-content: center;
     align-items: center;
     overflow-x: auto;
 }
 
 .photos img {
-    width: 220px;
+    width: 150px;
     border-radius: 20px;
 }
 
@@ -224,20 +233,78 @@ input[type="date"] {
     width: 100%;
     box-sizing: border-box;
 }
+.photosForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    gap: 20px;
+}
+.photoForm{
+    width: 15rem;
+    border-radius: 20px;
+}
 
 /* TABLET */
 
 @media (min-width: 768px) {
+    .todpBox{
+        width: 40rem;
+        padding: 4% 8%;
+    }
 
     .trip1DayMain {
         padding: 0 5%;
         grid-template-columns: 2fr 1fr;
+        grid-template-rows: 30rem 15rem 65rem;
     }
-
+    .trip1Main h1{
+        margin-bottom: 0px;
+    }
+    .trip1Main p{
+        width: 90%;
+    }
+    .trip1Main{
+        display: flex;
+        height: 40rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+        grid-area: 1/1/2/2;
+    }
+    .trip1Icons{
+        justify-content: space-evenly;
+        margin-top: 0px;
+    }
+    .trip1Icon{
+        width: 7rem;
+        font-size: .8rem;
+        text-align: center;
+    }
+    .trip1Icon img{
+        width: 4vw;
+    }
     .allEquip {
+        display: flex;
+        grid-area: 2/1/3/3;
+        flex-direction: row;
+        justify-content: space-evenly;
         grid-template-columns: repeat(4, 1fr);
     }
-
+    .wtt{
+        text-align: center;
+        gap: 1rem;
+    }
+    .tripSide{
+        grid-area: 3/1/4/3;
+    }
+    .photos{
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .bookingCard h2{
+        font-size: 15px;
+    }
     .optionGrid {
         flex-direction: row;
     }
@@ -245,7 +312,13 @@ input[type="date"] {
     .optionCard {
         width: 50%;
     }
-
+    .photos{
+        justify-content: space-evenly;
+    }
+    .photos img {
+        width: 280px;
+        border-radius: 20px;
+    }
     .lastSection {
         padding: 0 5%;
     }
@@ -253,11 +326,19 @@ input[type="date"] {
     .questions {
         width: 40vw;
     }
+    .photosForm{
+        gap: 40px;
+    }
+    .photoForm{
+        width: 800px;
+        object-fit: cover;
+        height: 190px;
+    }
 }
 
 /*  DESKTOP  */
 
-@media (min-width: 1024px) {
+@media (min-width: 1224px) {
 
     .tripOneDayPage {
         min-height: 60vh;
@@ -291,34 +372,45 @@ input[type="date"] {
 
     .trip1Main {
         grid-area: 1 / 1 / 2 / 2;
+        width: 90%;
+        height: 30rem;
         display: flex;
+        gap: 30px;
         flex-direction: column;
         margin: 0;
         padding: 0;
+        justify-content: center;
     }
 
     .trip1Icons {
         flex-wrap: nowrap;
-        justify-content: start;
+        justify-content: space-evenly;
         gap: 3rem;
+        margin-top: 2rem;
     }
 
     .trip1Icon {
         display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 1rem;
         font-size: .7rem;
         font-weight: 600;
     }
+    .trip1Icon p{
+        font-size: .8rem;
+        width: 12vw;
+    }
 
     .trip1Icon img {
-        width: 2vw;
+        width: 3vw;
     }
 
     .tripPlan {
         grid-area: 2 / 1 / 3 / 2;
         margin: 0;
         padding: 0;
+        width: 100%;
     }
 
     .tripStep {
@@ -328,10 +420,12 @@ input[type="date"] {
 
     .equipment {
         grid-area: 3 / 1 / 4 / 2;
+        width: 90%;
     }
 
     .allEquip {
         display: flex;
+        flex-direction: row;
         gap: 6rem;
     }
 
@@ -352,24 +446,29 @@ input[type="date"] {
     }
 
     .tripSide {
-        grid-area: 1 / 3 / 4 / 4;
+        grid-area: 1 / 2 / 4 / 4;
+        height: auto;
         border-radius: 30px;
         padding: 1rem 2rem;
+        width: 100%;
     }
 
     .bookingCard {
-        width: 480px;
+        width: 100%;
+        max-width: 480px;
+        height: 100%;
         border-radius: 28px;
         padding: 34px;
+        box-sizing: border-box;
         box-shadow: 0 30px 60px rgba(15, 23, 42, .12);
         display: flex;
         flex-direction: column;
-        gap: 28px;
+        justify-content: space-between;
     }
 
     .bookingCard h2 {
         margin: 0;
-        font-size: 32px;
+        font-size: clamp(16px, 2.3vw, 32px);
         font-weight: 700;
     }
 
@@ -381,20 +480,26 @@ input[type="date"] {
 
     .bookingSection h4,
     .bookingSection label {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
     }
 
     .optionGrid {
         justify-content: space-between;
-        width: 25vw;
-        gap: 16px;
+        width: 100%;
+        gap: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
     }
 
     .optionCard {
+        flex: 1 1 50%;
         position: relative;
         padding: 22px;
         margin-top: 0;
+        min-width: 50%;
     }
 
     .radio {
@@ -426,9 +531,13 @@ input[type="date"] {
         color: white;
         font-size: 14px;
     }
+    h4{
+        margin: 5px;
+    }
 
     select,
-    input[type="date"] {
+    input[type="date"],
+    .input {
         width: 90%;
         font-size: 16px;
         outline: none;
@@ -439,7 +548,9 @@ input[type="date"] {
     input:focus {
         border-color: rgb(255, 105, 105);
     }
-
+    .price{
+        font-size: clamp(12px, 2vw, 30px);
+    }
     .counter button:hover {
         background: #edf0f5;
     }
@@ -483,6 +594,19 @@ input[type="date"] {
         background-color: rgba(255, 0, 0, .187);
         padding: .5rem;
         border: 2px solid rgb(255, 105, 105);
+        border-radius: 20px;
+    }
+    .photosForm{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        height: 100%;
+        justify-content: start;
+        align-items: center;
+    }
+    .photoForm{
+        width: 100%;
+        height: 18%;
         border-radius: 20px;
     }
 }

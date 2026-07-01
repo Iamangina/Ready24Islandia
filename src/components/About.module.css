@@ -147,6 +147,12 @@ span {
     margin: 0 auto;
     border-radius: 20px;
 }
+.aboutMeQuestions h1{
+    font-size: 1.5rem;
+}
+.aboutMeQuestions p{
+    font-size: .9rem;
+}
 @media (min-width: 728px){
     .values{
         flex-direction: row;

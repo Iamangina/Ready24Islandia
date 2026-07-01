@@ -1,5 +1,6 @@
 import styles from "./Trips.module.css"
 import { Outlet, Link } from "react-router-dom";
+import { useState } from "react"
 
 import safety from "../assets/icons/safetyIcon.png"
 import mapIcon from "../assets/icons/mapIcon.png"
@@ -13,6 +14,7 @@ import paymentIcon from "../assets/icons/paymentIcon.png"
 
 
 export default function Trips(){
+    const [show, setShow] = useState(false);
     return (
         <>
             <section className={styles.tripsPage}>
@@ -52,7 +54,7 @@ export default function Trips(){
                                 <option value="2">2 osoby</option>
                             </select>
                         </div>
-                        <button type="submit">Szukaj wyjazdu</button>
+                        <Link to="/wyjazdy/wyjazd_1dzien"><button type="">Szukaj wyjazdu</button></Link>
 
                     </form>
                 </section>
@@ -139,13 +141,14 @@ export default function Trips(){
                         </div>
                     </div>
                 </section>
-
+ 
                 <hr></hr>
 
                 <section className={styles.tripsPageQuestions}>
                     <h1>Masz pytania?</h1>
                     <p>Nie wiesz, który wyjazd wybrać? Skontaktuj się ze mną, pomogę Ci znaleźć idealną przygodę!</p>
-                    <button>Skontaktuj się</button>
+                    <button onClick={() => setShow(true)}>Skontaktuj się</button>
+                        {show && <p>📧 ready24@ready24.is.com</p>}
                 </section>
             
         </>

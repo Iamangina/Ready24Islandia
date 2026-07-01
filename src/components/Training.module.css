@@ -56,7 +56,7 @@ hr {
     gap: 2rem;
     align-items: center;
 }
-
+ 
 .trainingIcon {
     width: 100%;
     max-width: 320px;
@@ -85,6 +85,7 @@ hr {
 
 .video {
     width: 100%;
+    align-self: flex-start;
     max-width: 500px;
     text-align: left;
 }
