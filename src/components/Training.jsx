@@ -4,40 +4,39 @@ import quad from "../assets/icons/miniQuadIcon.png"
 import safety from "../assets/icons/safetyIcon.png"
 import star from "../assets/icons/star.png"
 
+import { useTranslation } from "react-i18next";
+
 export default function Training(){
+
+        const { t } = useTranslation();
     return(
         <>
         <section className={styles.trainingPage}>
                 <div className={styles.trainingBox}>
-                    <p>Strona Główna &gt; Szkolenia</p>
-                    <h1>TRENING NA TORZE</h1>
-                    <h2>Treining na torze to idealna okazja, by rozwinąć swoje umiejętności, poznać możliwoś
-                        quada i poczuć prawdziwą kontrolę w każdych warukach.
-                    </h2>
+                    <p>{t("training.p")}</p>
+                    <h1>{t("training.h1")}</h1>
+                    <h2>{t("training.h2")}</h2>
                 </div>
         </section>
 
         <section className={styles.trainingDescr}>
-            <h2>Co to jest trening na torze?</h2>
-            <p>To praktyczne zajęcia prowadzone przez doświadczonego instruktora, które pomogą Ci lepiej
-                panować nad quadem w bezpiecznym, kontrolowanym środowisku. Niezależnie od poziomu zaawansowania - 
-                znajdziesz coś dla siebie!
-            </p>
+            <h2>{t("training.trainingDescr.h2")}</h2>
+            <p>{t("training.trainingDescr.p")}</p>
             <div className={styles.trainingIcons}>
                 <div className={styles.trainingIcon}>
                     <img src={quad}></img>
-                    <h3>Kontrola i technika</h3>
-                    <p>Naucz się precyzyjnego prowadzenia, pokonywania zakrętów i odpowiedniej pozycji.</p>
+                    <h3>{t("training.trainingIcons.one.h3")}</h3>
+                    <p>{t("training.trainingIcons.one.p")}</p>
                 </div>
                 <div className={styles.trainingIcon}>
                     <img src={safety}></img>
-                    <h3>Bezpieczne środowisko</h3>
-                    <p>Ćwicz w kontrolowanych warunkach z doświadczonym instruktorem.</p>
+                    <h3>{t("training.trainingIcons.two.h3")}</h3>
+                    <p>{t("training.trainingIcons.two.p")}</p>
                 </div>
                 <div className={styles.trainingIcon}>
                     <img src={star}></img>
-                    <h3>Dla każdego poziomu</h3>
-                    <p>Zarówno dla początkujących, jak i zaawansowanych pasjonatów quadów.</p>
+                    <h3>{t("training.trainingIcons.three.h3")}</h3>
+                    <p>{t("training.trainingIcons.three.p")}</p>
                 </div>
             </div>
         </section>
@@ -46,8 +45,8 @@ export default function Training(){
 
         <section className={styles.trainings}>
             <div className={styles.trainingText}>
-                <h2>Zobacz trening w akcji</h2>
-                <a href="https://www.youtube.com/@ready24islandia">Zobacz więcej na Youtube</a>
+                <h2>{t("training.trainingYoutube.h2")}</h2>
+                <a href="https://www.youtube.com/@ready24islandia">{t("training.trainingYoutube.link")}</a>
             </div>
             <div className={styles.videos}>
                 <div className={styles.video}>
@@ -56,7 +55,7 @@ export default function Training(){
                         title="Trening na quadzie"
                         allowFullScreen
                     />
-                    <p>Ćwiczenie „ósemka” na utrzymanie biegłości i poprawę techniki jazdy quadem.</p>
+                    <p>{t("training.trainingYoutube.p1")}</p>
                  </div>
                  <div className={styles.video}>
                     <iframe
@@ -64,7 +63,7 @@ export default function Training(){
                         title="Trening na quadzie"
                         allowFullScreen
                     />
-                    <p>Jeden ze sposobów na pokonanie mitycznej kłody/beczki.</p>
+                    <p>{t("training.trainingYoutube.p2")}</p>
                  </div>  
                  <div className={styles.video}>
                     <iframe
@@ -72,7 +71,7 @@ export default function Training(){
                         title="Trening na quadzie"
                         allowFullScreen
                     />
-                    <p>Wykorzystanie pachołków do praktycznych ćwiczeń jazdy: trawers i przejazd przez bramkę.</p>
+                    <p>{t("training.trainingYoutube.p3")}</p>
                  </div>    
             </div>
         </section>
@@ -80,8 +79,8 @@ export default function Training(){
         <hr></hr>
 
         <section className={styles.trainingQuestions}>
-                <h1>Masz pytania?</h1>
-                <p>Skontaktuj się ze mną, chętnie odpowiem na wszystkie pytania!</p>
+                <h1>{t("training.trainingQuestions.h1")}</h1>
+                <p>{t("training.trainingQuestions.p")}</p>
                 <p>ready24@ready24.is</p>
         </section>
         </>

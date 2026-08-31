@@ -12,22 +12,24 @@ import calendarIcon from "../assets/icons/calendarIcon.png"
 import bookingIcon from "../assets/icons/bookingIcon.png"
 import paymentIcon from "../assets/icons/paymentIcon.png"
 
+import { useTranslation } from "react-i18next";
+
 
 export default function Trips(){
+
+    const { t } = useTranslation();
     const [show, setShow] = useState(false);
     return (
         <>
             <section className={styles.tripsPage}>
                 <div className={styles.tripsPageInfoBox}>
-                    <p>Strona Główna &gt; Wyjazdy</p>
-                    <h1>WYJAZDY NA QUADACH W ISLANDII</h1>
-                    <h2>Odkryj Islandię z innej perspektywy. 
-                        Wyjazdy quadowe skierowane głównie do osób posiadających już doświadczenie w jeździe. 
-                        Każda trasa to niezapomniane widoki, emocje i bezpieczeństwo.</h2>
+                    <p>{t("trips.p")}</p>
+                    <h1>{t("trips.h1")}</h1>
+                    <h2>{t("trips.h2")}</h2>
                 </div>
             </section>
 
-                <section className={styles.tripsPageSearch}>
+                {/* <section className={styles.tripsPageSearch}>
                     <form method="GET" action="/wyjazdy">
 
                         <div>
@@ -57,30 +59,30 @@ export default function Trips(){
                         <Link to="/wyjazdy/wyjazd_1dzien"><button type="">Szukaj wyjazdu</button></Link>
 
                     </form>
-                </section>
+                </section> */}
 
                 <hr></hr>
 
                 <section className={styles.tripsPageTrips}>
-                    <h1>Wybierz swoją przygodę</h1>
+                    <h1>{t("trips.tripsChoose.title")}</h1>
                     <div className={styles.tripsPageAllTrips}>
                         <div className={styles.tripsPageTrip} id={styles.oneday}>
-                            <h2>Wyjazd 1-dniowy ze szkoleniem</h2>
-                            <p>min. 2h</p>
-                            <h3>Idealny wybór jeżeli chcesz przetestować swoje umiejętności na torze, nauczyć się czegoś nowego a przy okazji dobrze się bawić.</h3>
-                            <Link to="/wyjazdy/wyjazd_1dzien"><button> Zobacz szczegóły &gt;</button></Link>
+                            <h2>{t("trips.tripsChoose.one.h2")}</h2>
+                            <p>{t("trips.tripsChoose.one.time")}</p>
+                            <h3>{t("trips.tripsChoose.one.h3")}</h3>
+                            <Link to="/wyjazdy/wyjazd_1dzien"><button> {t("trips.tripsChoose.btn")} &gt;</button></Link>
                         </div>
                         <div className={styles.tripsPageTrip} id={styles.threedays}>
-                            <h2>3-dniowa wyprawa</h2>
-                            <p>3dni - Wkrótce </p>
-                            <h3>Więcej przygód, więcej miejsc do odkrycia. Idealna dla osób z doświadczeniem.</h3>
-                            <Link to="/wkrotce"><button> Zobacz szczegóły &gt;</button></Link>
+                            <h2>{t("trips.tripsChoose.three.h2")}</h2>
+                            <p>{t("trips.tripsChoose.three.time")}</p>
+                            <h3>{t("trips.tripsChoose.three.h3")}</h3>
+                            <Link to="/wkrotce"><button> {t("trips.tripsChoose.btn")} &gt;</button></Link>
                         </div>
                         <div className={styles.tripsPageTrip} id={styles.fivedays}>
-                            <h2>5-dniowa wyprawa</h2>
-                            <p>5dni - Wkrótce </p>
-                            <h3>Najlepsze trasy, prawdziwa Islandia. Adrenalina i walka z samym sobą. Dla doświadczonych quadowców.</h3>
-                            <Link to="/wkrotce"><button> Zobacz szczegóły &gt;</button></Link>
+                            <h2>{t("trips.tripsChoose.five.h2")}</h2>
+                            <p>{t("trips.tripsChoose.five.time")}</p>
+                            <h3>{t("trips.tripsChoose.five.h3")}</h3>
+                            <Link to="/wkrotce"><button> {t("trips.tripsChoose.btn")} &gt;</button></Link>
                         </div>
                     </div>
                 </section>
@@ -88,27 +90,35 @@ export default function Trips(){
                 <hr></hr>
 
                 <section className={styles.tripsPageSectionInfo}>
-                    <h1>Dlaczego warto wybrać moje wyjazdy?</h1>
+                    <h1>{t("trips.tripsInfo.h1")}</h1>
                     <div>
                         <div className={styles.tripsPageSect}>
                             <img src={safety}></img>
-                            <h2>100% bezpieczeństwo</h2>
-                            <p>Profesjonalne szkolenie, najlepszy sprzęt.</p>
+                            <div>
+                                <h2>{t("trips.tripsInfo.tripsReasons.one.h2")}</h2>
+                                <p>{t("trips.tripsInfo.tripsReasons.one.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripsPageSect}>
                             <img src={poepleIcon}></img>
-                            <h2>Małe grupy</h2>
-                            <p>Maksymalnie 2 osoby w grupie - indywidualne podejście</p>
+                            <div>
+                                <h2>{t("trips.tripsInfo.tripsReasons.two.h2")}</h2>
+                                <p>{t("trips.tripsInfo.tripsReasons.two.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripsPageSect}>
                             <img src={mapIcon}></img>
-                            <h2>Sprawdzone Trasy</h2>
-                            <p>Trasy, które znam doskonale i regularnie sprawdzam</p>
+                            <div>
+                                <h2>{t("trips.tripsInfo.tripsReasons.three.h2")}</h2>
+                                <p>{t("trips.tripsInfo.tripsReasons.three.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripsPageSect}>
                             <img src={miniQuad}></img>
-                            <h2>Niezapomniane widoki</h2>
-                            <p>Miejsca niedostępne dla zwykłych turystów. Gwarantowane emocje</p>
+                            <div>
+                                <h2>{t("trips.tripsInfo.tripsReasons.four.h2")}</h2>
+                                <p>{t("trips.tripsInfo.tripsReasons.four.p")}</p>
+                            </div>
                         </div>
         
                     </div>
@@ -117,27 +127,35 @@ export default function Trips(){
                 <hr></hr>
 
                 <section className={styles.tripsPageBooking}>
-                    <h1>Jak zarezerwować wyjazd?</h1>
+                    <h1>{t("trips.tripsBooking.h1")}</h1>
                     <div>
                         <div className={styles.tripPageStep}>
                             <img src={calendarIcon}></img>
-                            <h2>Wybierz Wyjazd</h2>
-                            <p>Zobacz dostępne wyjazdy i wybierz idealny dla siebie.</p>
+                            <div>
+                                <h2>{t("trips.tripsBooking.steps.one.h2")}</h2>
+                                <p>{t("trips.tripsBooking.steps.one.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripPageStep}>
                             <img src={bookingIcon}></img>
-                            <h2>Sprawdź termin</h2>
-                            <p>Wybierz dogodny termin i liczbę uczestników</p>
+                            <div>
+                                <h2>{t("trips.tripsBooking.steps.two.h2")}</h2>
+                                <p>{t("trips.tripsBooking.steps.two.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripPageStep}>
                             <img src={paymentIcon}></img>
-                            <h2>Zarezerwuj i zapłać</h2>
-                            <p>Potwierdź rezerwacje i dokonaj płatności online</p>
+                            <div>
+                                <h2>{t("trips.tripsBooking.steps.three.h2")}</h2>
+                                <p>{t("trips.tripsBooking.steps.three.p")}</p>
+                            </div>
                         </div>
                         <div className={styles.tripPageStep}>
                             <img src={quadIcon}></img>
-                            <h2>Jedź i ciesz się!</h2>
-                            <p>Przyjedź gotowy na przygodę. My zajmiemy się resztą.</p>
+                            <div>
+                                <h2>{t("trips.tripsBooking.steps.four.h2")}</h2>
+                                <p>{t("trips.tripsBooking.steps.four.p")}</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -145,10 +163,10 @@ export default function Trips(){
                 <hr></hr>
 
                 <section className={styles.tripsPageQuestions}>
-                    <h1>Masz pytania?</h1>
-                    <p>Nie wiesz, który wyjazd wybrać? Skontaktuj się ze mną, pomogę Ci znaleźć idealną przygodę!</p>
-                    <button onClick={() => setShow(true)}>Skontaktuj się</button>
-                        {show && <p>📧 ready24@ready24.is.com</p>}
+                    <h1>{t("trips.tripsQuestions.h1")}</h1>
+                    <p>{t("trips.tripsQuestions.p")}</p>
+                    <button onClick={() => setShow(true)}>{t("trips.tripsQuestions.btn")}</button>
+                        {show && <p>📧 {t("trips.tripsQuestions.email")}</p>}
                 </section>
             
         </>

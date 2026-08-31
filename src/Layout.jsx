@@ -3,11 +3,24 @@ import { useState, useEffect, useRef } from "react";
 import logo from "./assets/logo.png";
 import "./index.css";
 
+import { useTranslation } from "react-i18next";
+import transl from "./translation";
+
+
 export default function Layout() {
+
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const navRef = useRef(null);
   const buttonRef = useRef(null);
+
+  const changeLanguage = () => {
+      const newLanguage = transl.language === "pl" ? "en" : "pl";
+
+      transl.changeLanguage(newLanguage);
+      localStorage.setItem("language", newLanguage);
+    };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -43,26 +56,30 @@ export default function Layout() {
 
         <nav ref={navRef} className={`linksNav ${open ? "active" : ""}`}>
           <Link to="/" className="link" onClick={() => setOpen(false)}>
-            Strona Główna
+            {t("nav.home")}
           </Link>
 
           <Link to="/wyjazdy" className="link" onClick={() => setOpen(false)}>
-            Wyjazdy
+            {t("nav.trips")}
           </Link>
 
           <Link to="/szkolenia" className="link" onClick={() => setOpen(false)}>
-            Szkolenia
+            {t("nav.training")}
           </Link>
 
           <Link to="/omnie" className="link" onClick={() => setOpen(false)}>
-            O mnie
+            {t("nav.about")}
           </Link>
+
+          <button onClick={changeLanguage} className="languageBtn">
+            • {transl.language === "pl" ? "PL" : "EN"} •
+          </button>
 
           <button
             className="rezerwacjaBtn"
             onClick={() => setOpen(false)}
           >
-            Zarezerwuj
+            {t("nav.booking")}
           </button>
         </nav>
       </header>
@@ -74,24 +91,24 @@ export default function Layout() {
       <footer>
         <nav className="linksFooter">
           <Link to="/" className="link">
-            Strona Główna
+            {t("nav.home")}
           </Link>
 
           <Link to="/wyjazdy" className="link">
-            Wyjazdy
+            {t("nav.trips")}
           </Link>
 
           <Link to="/szkolenia" className="link">
-            Nauka Jazdy
+            {t("nav.training")}
           </Link>
 
           <Link to="/omnie" className="link">
-            O mnie
+            {t("nav.home")}
           </Link>
         </nav>
 
         <p>
-          Design i wykonanie:{" "}
+          {t("nav.design")}{" "}
           <a href="https://github.com/Iamangina">
             Angelika Kowalik
           </a>

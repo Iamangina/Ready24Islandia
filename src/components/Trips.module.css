@@ -208,6 +208,10 @@ form button {
     flex-direction: column;
     align-items: center;
 }
+.tripsPageSect div{
+    display: flex;
+    flex-direction: column;
+}
 
 .tripsPageSect img {
     width: 10vw;
@@ -258,11 +262,15 @@ form button {
 }
 
 .tripPageStep {
-    width: 15vw;
+    width: 19vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+}
+.tripPageStep div{
+    display: flex;
+    flex-direction: column;
 }
 
 .tripPageStep img {
@@ -273,13 +281,13 @@ form button {
 }
 
 .tripPageStep h2 {
-    margin: 1rem 0;
-    font-size: .8rem;
+    margin: .5rem 0;
+    font-size: .9rem;
 }
 
 .tripPageStep p {
     margin: 0;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     line-height: 1.5;
 }
 

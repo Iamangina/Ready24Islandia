@@ -18,6 +18,8 @@ import boots from "../../assets/icons/boots.png"
 import glove from "../../assets/icons/glove.png"
 import smile from "../../assets/icons/smileIcon.png"
 
+import { useTranslation } from "react-i18next";
+
 const prices = {
   training: {
     2: 30000,
@@ -32,6 +34,8 @@ const prices = {
 };
 
 export default function TripDetails(){
+
+    const { t } = useTranslation();
 
 const [email, setEmail] = useState("");
 const [phone, setPhone] = useState("");
@@ -87,12 +91,12 @@ const [option, setOption] = useState("training");
     });
 
     if (!response.ok) {
-      throw new Error("Błąd serwera");
+      throw new Error("Error");
     }
 
     setStep(3);
   } catch (err) {
-    setError("Nie udało się wysłać formularza.");
+    setError(t("trip1Details.about.data.error"));
   } finally {
     setLoading(false);
   }
@@ -103,80 +107,77 @@ const [option, setOption] = useState("training");
         <>
             <section className={styles.tripOneDayPage}>
                 <div className={styles.todpBox}>
-                    <p>Strona Główna &gt; Wyjazdy &gt; Wyjazd 1-dniowy</p>
-                    <h1>WYJAZD 1-dniowy ze szkoleniem</h1>
-                    <h2>Idealny wybór na rozpoczęcie przygody z quadami. Bezpieczna trasa, trening na torze i jazda w terenie
-                        - wszsytko w jeden dzień.</h2>
-                    <p>min. 2h</p>
+                    <p>{t("trip1Details.p")}</p>
+                    <h1>{t("trip1Details.h1")}</h1>
+                    <h2>{t("trip1Details.descr")}</h2>
+                    <p>{t("trip1Details.time")}</p>
                 </div>
             </section>
 
             <section className={styles.trip1DayMain}>
                 <main className={styles.trip1Main}>
-                    <h1>O wyjeździe</h1>
-                    <p>Ten wyjazd to idealne połączenie nauki i przygody. Zaczynamy od szkolenia na torze, gdzie poznasz quada, podstawy jazdy i techniki bezpieczeństwa.
-                        Następnie ruszamy w teren, aby odkrywać krajobrazy Islandii. Program dostosowujemy do Twoich preferencji -
-                        możesz wybrać więcej jazdy na torze lub terenie.
+                    <h1>{t("trip1Details.about.h1")}</h1>
+                    <p>{t("trip1Details.about.p")}
                     </p>
                     <div className={styles.trip1Icons}>
-                        <div className={styles.trip1Icon}><img src={star}></img><p>Trening na torze</p></div>
-                        <div className={styles.trip1Icon}><img src={star}></img><p>Jazda w terenie</p></div>
-                        <div className={styles.trip1Icon}><img src={star}></img><p>Sprzęt i paliwo w cenie</p></div>
+                        <div className={styles.trip1Icon}><img src={star}></img><p>{t("trip1Details.about.icons.one")}</p></div>
+                        <div className={styles.trip1Icon}><img src={star}></img><p>{t("trip1Details.about.icons.two")}</p></div>
+                        <div className={styles.trip1Icon}><img src={star}></img><p>{t("trip1Details.about.icons.three")}</p></div>
                     </div>
                 </main>
                 <section className={styles.tripPlan}>
-                    <h2>Program wyjazdu</h2>
+                    <h2>{t("trip1Details.about.program.h2")}</h2>
                     <div className={styles.tripStep}>
                         <p>○</p>
                         <p>10:00</p>
                         <div>
-                            <h3>Spotkanie i szkolenie</h3>
-                            <p>Przyjazd, powitanie, omówienie zasad bezpieczeństwa i dojazd na tor.</p>
+                            <h3>{t("trip1Details.about.program.step1.h3")}</h3>
+                            <p>{t("trip1Details.about.program.step1.p")}</p>
                         </div>
                     </div>
                     <div className={styles.tripStep}>
                         <p>○</p>
                         <p>11:00</p>
                         <div>
-                            <h3>Trening na torze</h3>
-                            <p>Szkolenie na torze, nauka poprawnej pozycji na quadzie oraz technik jazdy quadem w terenie.</p>
+                            <h3>{t("trip1Details.about.program.step2.h3")}</h3>
+                            <p>{t("trip1Details.about.program.step2.p")}</p>
                         </div>
                     </div>
                     <div className={styles.tripStep}>
                         <p>○</p>
                         <p>13:00</p>
                         <div>
-                            <h3>Jazda w terenie</h3>
-                            <p>Wyruszamy w trasę terenową - malownicze widoki, górskie szlaki i dzika Islandia.</p>
+                            <h3>{t("trip1Details.about.program.step3.h3")}</h3>
+                            <p>{t("trip1Details.about.program.step3.p")}</p>
                         </div>
                     </div>
                     <div className={styles.tripStep}>
                         <p>○</p>
                         <p>14:00</p>
                         <div>
-                            <h3>Powrót</h3>
+                            <h3>{t("trip1Details.about.program.step4.h3")}</h3>
                         </div>
                     </div>
                 </section>
                  
                 <section className={styles.equipment}>
-                    <h3>Co zabrać?</h3>
+                    <h3>{t("trip1Details.about.equipment.h3")}</h3>
                     <div className={styles.allEquip}>
                         <div className={styles.wtt}>
                             <img src={jacket}></img>
-                            <p>Wygodne ubranie odporne na brud</p>
+                            <p>{t("trip1Details.about.equipment.one")}</p>
                         </div>
                         <div className={styles.wtt}>
                             <img src={boots}></img>
-                            <p>Buty motocyklowe, trekkingowe lub sportowe</p>
+                            <p>{t("trip1Details.about.equipment.two")}</p>
                         </div>
                         <div className={styles.wtt}>
                             <img src={glove}></img>
-                            <p>Rękawice (jeśli masz)</p>
+                            <p>{t("trip1Details.about.equipment.three")}</p>
                         </div>
                         <div className={styles.wtt}>
                             <img src={smile}></img>
-                            <p>Dobry humor i energię!</p>
+                            <p>{t("trip1Details.about.equipment.four")}</p>
                         </div>
                     </div>
                 </section>
@@ -185,10 +186,10 @@ const [option, setOption] = useState("training");
 
                 {step === 1 ? (
                     <>
-                        <h2>Zarezerwuj swój wyjazd</h2>
+                        <h2>{t("trip1Details.about.form.h2")}</h2>
 
                         <div className={styles.bookingSection}>
-                            <h4>Wybierz preferencję</h4>
+                            <h4>{t("trip1Details.about.form.h4")}</h4>
 
                             <div className={styles.optionGrid}>
 
@@ -200,9 +201,9 @@ const [option, setOption] = useState("training");
                                 >
                                     <div className={styles.radio} />
 
-                                    <h5>Trening na torze + jazda w terenie</h5>
+                                    <h5>{t("trip1Details.about.form.option1.h5")}</h5>
 
-                                    <p>Pełne doświadczenie</p>
+                                    <p>{t("trip1Details.about.form.option1.p")}</p>
                                 </button>
 
                                 <button
@@ -213,30 +214,30 @@ const [option, setOption] = useState("training");
                                 >
                                     <div className={styles.radio} />
 
-                                    <h5>Więcej jazdy w terenie</h5>
+                                    <h5>{t("trip1Details.about.form.option2.h5")}</h5>
 
-                                    <p>Dłuższa trasa off-road</p>
+                                    <p>{t("trip1Details.about.form.option2.p")}</p>
                                 </button>
 
                             </div>
                         </div>
 
                         <div className={styles.bookingSection}>
-                            <h4>Czas trwania</h4>
+                            <h4>{t("trip1Details.about.time")}</h4>
 
                             <select
                                 className={styles.select}
                                 value={hours}
                                 onChange={(e) => setHours(Number(e.target.value))}
                             >
-                                <option value={2}>2 godziny</option>
-                                <option value={4}>4 godziny</option>
-                                <option value={6}>6 godzin</option>
+                                <option value={2}>{t("trip1Details.about.twoh")}</option>
+                                <option value={4}>{t("trip1Details.about.fourh")}</option>
+                                <option value={6}>{t("trip1Details.about.sixh")}</option>
                             </select>
                         </div>
 
                         <div className={styles.levelSection}>
-                            <h4>Poziom trudności</h4>
+                            <h4>{t("trip1Details.about.level")}</h4>
 
                             <select className={styles.level} value="level">
                                 <option value="explorer">Explorer</option>
@@ -246,7 +247,7 @@ const [option, setOption] = useState("training");
                         </div>
 
                         <div className={styles.bookingSection}>
-                            <h4>Data</h4>
+                            <h4>{t("trip1Details.about.date")}</h4>
 
                             <input
                                 className={styles.input}
@@ -257,7 +258,7 @@ const [option, setOption] = useState("training");
                         </div>
 
                         <div className={styles.bookingSection}>
-                            <h4>Liczba uczestników</h4>
+                            <h4>{t("trip1Details.about.particip")}</h4>
 
                             <div className={styles.counter}>
 
@@ -289,7 +290,7 @@ const [option, setOption] = useState("training");
                         <div className={styles.priceBox}>
 
                             <div className={styles.priceLabel}>
-                                <h3>Cena</h3>
+                                <h3>{t("trip1Details.about.price")}</h3>
                             </div>
 
                             <div className={styles.price}>
@@ -297,8 +298,8 @@ const [option, setOption] = useState("training");
                             </div>
 
                             <span className={styles.priceInfo}>
-                                {hours} godzin • {participants}{" "}
-                                {participants === 1 ? "osoba" : "osoby"}
+                                {hours} hours • {participants}{" "}
+                                {participants === 1 ? "person" : "people"}
                             </span>
 
                         </div>
@@ -310,26 +311,26 @@ const [option, setOption] = useState("training");
                                 setStep(2);
                             }}
                         >
-                            Zarezerwuj teraz
+                            {t("trip1Details.about.book")}
                         </button>
                     </>
                 ) : step === 2 ? (
                     <>
-                        <h2>Dane rezerwacji</h2>
+                        <h2>{t("trip1Details.about.data.h2")}</h2>
 
                         <div className={styles.bookingSection}>
-                            <h4>Adres e-mail</h4>
+                            <h4>{t("trip1Details.about.data.email")}</h4>
                             <input
                                 className={styles.input}
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Twój adres e-mail"
+                                placeholder={t("trip1Details.about.data.email")}
                             />
                         </div>
 
                         <div className={styles.bookingSection}>
-                            <h4>Numer telefonu</h4>
+                            <h4>{t("trip1Details.about.data.phone")}</h4>
                             <input
                                 className={styles.input}
                                 type="tel"
@@ -344,7 +345,7 @@ const [option, setOption] = useState("training");
                                 className={styles.bookingSection}
                                 key={index}
                             >
-                                <h4>Imię i nazwisko uczestnika x {index + 1}</h4>
+                                <h4>{t("trip1Details.about.data.names")} {index + 1}</h4>
 
                                 <input
                                     className={styles.input}
@@ -355,7 +356,7 @@ const [option, setOption] = useState("training");
                                         updated[index].fullName = e.target.value;
                                         setParticipantsData(updated);
                                     }}
-                                    placeholder="Imię i nazwisko uczestnika"
+                                    placeholder={t("trip1Details.about.data.names")}
                                 />
                             </div>
                         ))}
@@ -363,7 +364,7 @@ const [option, setOption] = useState("training");
                         <div className={styles.priceBox}>
 
                             <div className={styles.priceLabel}>
-                                <h3>Do zapłaty</h3>
+                                <h3>{t("trip1Details.about.data.price")}</h3>
                             </div>
 
                             <div className={styles.price}>
@@ -371,8 +372,8 @@ const [option, setOption] = useState("training");
                             </div>
 
                             <span className={styles.priceInfo}>
-                                {hours} godzin • {participants}{" "}
-                                {participants === 1 ? "osoba" : "osoby"}
+                                {hours} hours • {participants}{" "}
+                                {participants === 1 ? "person" : "people"}
                             </span>
 
                         </div>
@@ -386,7 +387,7 @@ const [option, setOption] = useState("training");
                             onClick={handleBooking}
                             disabled={loading}
                         >
-                            {loading ? "Wysyłanie..." : "Potwierdź rezerwację"}
+                            {loading ? t("trip1Details.about.data.sending") : t("trip1Details.about.data.btnSubmit")}
                         </button>
 
                         <button
@@ -394,7 +395,7 @@ const [option, setOption] = useState("training");
                             style={{ marginTop: "12px", width: "100%" }}
                             onClick={() => setStep(1)}
                         >
-                            Wróć
+                            {t("trip1Details.about.data.btnReturn")}
                         </button>
                     </>
                 ) : (
@@ -405,7 +406,7 @@ const [option, setOption] = useState("training");
                                 padding: "30px 10px",
                             }}
                         >
-                            <h2>Dziękujemy!</h2>
+                            <h2>{t("trip1Details.about.thankyou")}</h2>
 
                             <p
                                 style={{
@@ -413,11 +414,9 @@ const [option, setOption] = useState("training");
                                     lineHeight: "1.7",
                                 }}
                             >
-                                Dziękujemy za wysłanie formularza.
+                               {t("trip1Details.about.form.confirm1")}
                                 <br />
-                                Skontaktujemy się z Tobą najszybciej, jak to
-                                możliwe, aby potwierdzić rezerwację oraz
-                                przekazać wszystkie szczegóły wyjazdu.
+                                {t("trip1Details.about.form.confirm2")}
                             </p>
 
                             <button
@@ -425,7 +424,7 @@ const [option, setOption] = useState("training");
                                 style={{ marginTop: "30px" }}
                                 onClick={() => setStep(1)}
                             >
-                                Nowa rezerwacja
+                                {t("trip1Details.about.new")}
                             </button>
                             <div className={styles.photosForm}>
                                 <img className={styles.photoForm} src={photo4}></img>
@@ -441,7 +440,7 @@ const [option, setOption] = useState("training");
             </section>
             <section className={styles.lastSection}>
                 <div className={styles.photosBox}>
-                    <h3>Galeria</h3>
+                    <h3>{t("trip1Details.about.gallery")}</h3>
                     <div className={styles.photos}>
                         <img src={photo1}></img>
                         <img src={photo2}></img>
@@ -449,8 +448,8 @@ const [option, setOption] = useState("training");
                     </div>
                 </div>
                 <div className={styles.questions}>
-                    <h3>Masz pytania?</h3>
-                    <p>Skontaktuj się z nami - chętnie odpowiemy na wszystkie pytania!</p>
+                    <h3>{t("trip1Details.about.questions.h3")}</h3>
+                    <p>{t("trip1Details.about.questions.p")}</p>
                     <p>ready24@ready24.is</p>
                 </div>
             </section>

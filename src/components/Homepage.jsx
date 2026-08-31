@@ -30,7 +30,11 @@ import land9 from "../assets/landscapes/land9.jpg"
 import land10 from "../assets/landscapes/land10.jpg"
 import land11 from "../assets/landscapes/land11.jpg"
 
+import { useTranslation } from "react-i18next";
+
 export default function Homepage() {
+
+    const { t } = useTranslation();
     
   return (
     <>
@@ -42,13 +46,13 @@ export default function Homepage() {
         <main>
             <div className={styles.mainText}>
                 <h1 className={styles.mainTitle}>
-                    <span>WYJAZDY</span> 
-                    <span>NA QUADACH</span> 
-                    <span>W ISLANDII</span> 
+                    <span>{t("home.mainTitle.one")}</span> 
+                    <span>{t("home.mainTitle.two")}</span> 
+                    <span>{t("home.mainTitle.three")}</span> 
                 </h1>
-                <p>Wyjazdy quadami po dzikiej Islandii. Trening, adrenalina, przygoda - w małych grupach, z pasją.</p>
+                <p>{t("home.descriptP")}</p>
                 <button className={styles.btnMain}>
-                    <Link className={styles.btnLinkMain} to="/wyjazdy">ZOBACZ WIĘCEJ</Link>
+                    <Link className={styles.btnLinkMain} to="/wyjazdy">{t("home.buttonMain")}</Link>
                 </button>
             </div> 
         </main>
@@ -60,23 +64,22 @@ export default function Homepage() {
 
     <section className={styles.sectionInfo}>
         <div className={styles.sectionText}>
-            <h1>Jeżdżę na quadach na co dzień. Prowadzę wyjazdy i pokazuję prawdziwą Islandię.</h1>
-            <p>To nie są typowe przejażdżki po wyznaczonych ścieżkach. Wyprawy skierowane są przede wszystkim do osób, które czują się pewnie za kierownicą quada i szukają prawdziwej terenowej przygody. 
-                Trasy prowadzą przez różnorodne islandzkie krajobrazy, a ich przebieg dostosowywany jest do warunków i możliwości grupy, zapewniając maksymalnie satysfakcjonujące doświadczenie.</p>
+            <h1>{t("home.sectionText.h1")}</h1>
+            <p>{t("home.sectionText.p")}</p>
         </div>
 
         <div className={styles.sectionIcons}>
             <div className={styles.miniIconBox}>
                 <img src={miniQuadIcon} className={styles.miniIcon}></img>
-                <p>Niezapomniane wrażenia, przygoda i wyzwanie</p>
+                <p>{t("home.sectionIcons.one")}</p>
             </div>
             <div className={styles.miniIconBox}>
                 <img src={peopleIcon} className={styles.miniIcon}></img>
-                <p>Maksymalnie 2 osobowa grupa, indywidualne podejście</p>
+                <p>{t("home.sectionIcons.two")}</p>
             </div>
             <div className={styles.miniIconBox}>
                 <img src={star} className={styles.miniIcon}></img>
-                <p>100% pasji i bezpieczeństwa</p>
+                <p>{t("home.sectionIcons.three")}</p>
             </div>
         </div>
         <div className={styles.sideSection}>
@@ -85,10 +88,10 @@ export default function Homepage() {
                     <img src={quadIcon} className={styles.sideIcon}></img>
                     <div className={styles.textSideSection}>
                         <h1 className={styles.titleSideSection}>
-                            1-dniowy wyjazd ze szkoleniem
+                            {t("home.sideSection.oneday.title")}
                         </h1>
                         <p className={styles.infoSideSection}>
-                            Jazda łącząca teorię i praktykę na torze oraz w terenie. Idealny na start.
+                            {t("home.sideSection.oneday.description")}
                         </p>
                     </div>
                 </div>
@@ -98,11 +101,11 @@ export default function Homepage() {
                 <img src={offRoad} className={styles.sideIcon}></img>
                 <div className={styles.textSideSection}>
                     <h1 className={styles.titleSideSection}>
-                        3-dniowa wyprawa
+                        {t("home.sideSection.threedays.title")}
                     </h1>
-                    <p className={styles.sectionSoon}>Wkrótce</p>
+                    <p className={styles.sectionSoon}>{t("home.sideSection.threedays.soon")}</p>
                     <p className={styles.infoSideSection}>
-                        Trzy dni jazdy, przygód i islandzkich krajobrazów. Szczegóły już wkrótce.
+                        {t("home.sideSection.threedays.description")}
                     </p>
                 </div>
             </div>
@@ -112,11 +115,11 @@ export default function Homepage() {
                 <img src={offRoad} className={styles.sideIcon}></img>
                 <div className={styles.textSideSection}>
                     <h1 className={styles.titleSideSection}>
-                        5-dniowa wyprawa
+                        {t("home.sideSection.fivedays.title")}
                     </h1>
-                    <p className={styles.sectionSoon}>Wkrótce</p>
+                    <p className={styles.sectionSoon}>{t("home.sideSection.fivedays.soon")}</p>
                     <p className={styles.infoSideSection}>
-                        Jeszcze więcej tereniu, wyzwań i niezapomnianych miejsc. Bądź na bieżąco!
+                        {t("home.sideSection.fivedays.description")}
                     </p>
                 </div>
             </div>
@@ -129,27 +132,27 @@ export default function Homepage() {
                                     {/* Sekcja tłumacząca rezerwacje */}
 
     <section className={styles.booking}>
-        <h1>Rezerwacja w 3 prostych krokach</h1>
+        <h1>{t("home.bookingSteps.title")}</h1>
         <div className={styles.steps}>
             <div className={styles.step}>
                 <img src={tripIcon}></img>
                 <div className={styles.stepText}>
-                    <h1>Wybierz wyjazd</h1>
-                    <p>Zdecyduj, która przygoda jest dla Ciebie</p>
+                    <h1>{t("home.bookingSteps.first.h1")}</h1>
+                    <p>{t("home.bookingSteps.first.p")}</p>
                 </div>
             </div>
             <div className={styles.step}>
                 <img src={calendarIcon}></img>
                 <div className={styles.stepText}>
-                    <h1>Dopasuj termin</h1>
-                    <p>WYbierz dogodny termin i liczbę uczestników</p>
+                    <h1>{t("home.bookingSteps.second.h1")}</h1>
+                    <p>{t("home.bookingSteps.second.p")}</p>
                 </div>
             </div>
             <div className={styles.step}>
                 <img src={bookingIcon}></img>
                 <div className={styles.stepText}>
-                    <h1>Zarezerwuj i jedź</h1>
-                    <p>Potwierdź rezerwacje i ruszaj na przygode</p>
+                    <h1>{t("home.bookingSteps.third.h1")}</h1>
+                    <p>{t("home.bookingSteps.third.p")}</p>
                 </div>
             </div>
         </div>
@@ -161,31 +164,31 @@ export default function Homepage() {
 
     <section className={styles.trips}>
         <div className={styles.tripsInfo}>
-            <h1>Wyjazdy na quadach</h1>
-            <p>Od szkolenia po wielodniowe wyprawy po dzikiej islandii.</p>
-            <button ><Link className={styles.btnLinkMain} to="/wyjazdy">ZOBACZ WIĘCEJ</Link></button>
+            <h1>{t("home.tripsInfo.h1")}</h1>
+            <p>{t("home.tripsInfo.p")}</p>
+            <button ><Link className={styles.btnLinkMain} to="/wyjazdy">{t("home.tripsInfo.btn")}</Link></button>
         </div>
         <div className={styles.trip}>
             <img src={trip1}></img>
             <div className={styles.textTrip}>
-                <h2>Wyjazd 1-dniowy ze szkoleniem</h2>
-                <p>Szkolenie teoretyczne i praktyczne na torze, jazda w terenie.</p>
+                <h2>{t("home.tripsInfo.trips.oneday.h2")}</h2>
+                <p>{t("home.tripsInfo.trips.oneday.p")}</p>
             </div>
         </div>
         <div className={styles.trip}>
             <img src={trip3}></img>
             <div className={styles.textTrip}>
-                <h2>3-dniowa wyprawa</h2>
-                    <p>Wkrótce</p>
-                    <p>Więcej przygód, więcej miejsc. Szczegóły już wkrótce.</p>
+                <h2>{t("home.tripsInfo.trips.threedays.h2")}</h2>
+                    <p>{t("home.tripsInfo.trips.soon")}</p>
+                    <p>{t("home.tripsInfo.trips.threedays.p")}</p>
             </div>
         </div>
         <div className={styles.trip}>
             <img src={trip5}></img>
             <div className={styles.textTrip}>
-                <h2>5-dniowa wyprawa</h2>
-                    <p>Wkrótce</p>
-                    <p>Najlpesze trasy, prawdziwa, dzika Islandia. </p>
+                <h2>{t("home.tripsInfo.trips.fivedays.h2")}</h2>
+                    <p>{t("home.tripsInfo.trips.soon")}</p>
+                    <p>{t("home.tripsInfo.trips.fivedays.p")}</p>
             </div>
         </div>
     </section>
@@ -227,23 +230,23 @@ export default function Homepage() {
 
     <section className={styles.sectionQuads}>
         <h1 className={styles.sectionQuadsTitle}>
-            Dostępne quady
+            {t("home.quads.title")}
         </h1>
         <div className={styles.quads}>
             <div className={styles.quad}>
                 <img src={renegade}></img>
                 <div>
                     <h2>2 x Renegade 650</h2>
-                    <p>Mocny, zwinny i stworzony do jazdy w trudnym terenie.</p>
-                    <p>1 osoba</p>
+                    <p>{t("home.quads.renegade")}</p>
+                    <p>{t("home.quads.one")}</p>
                 </div>
             </div>
             <div className={styles.quad}>
                 <img src={outlander}></img>
                 <div>
                     <h2>1 x Outlander 650</h2>
-                    <p>Stabilny, komfortowy i niezawodny w każdych warunkach.</p>
-                    <p>2 osoby</p>
+                    <p>{t("home.quads.outlander")}</p>
+                    <p>{t("home.quads.two")}</p>
                 </div>
             </div>
         </div>
@@ -255,10 +258,10 @@ export default function Homepage() {
 
    <section className={styles.youtube}>
         <h1 className={styles.sectionYoutubeTitle}>
-            Kanał na YouTubie
+            {t("home.youtube.title")}
         </h1>
         <p>
-            Zobacz techniki jazdy, porady, sprzęt którego używam i wiele więcej.
+            {t("home.youtube.p")}
         </p>
         <div className={styles.movies}>
             <div className={styles.videoContainer}>

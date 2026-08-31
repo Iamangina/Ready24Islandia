@@ -18,7 +18,7 @@ a{
 .todpBox {
     position: relative;
     z-index: 2;
-    padding: 3rem 1.2rem;
+    padding: 10rem 1.2rem;
     max-width: 100%;
     text-shadow: 0 0 .5em #000;
 }
@@ -81,7 +81,7 @@ a{
 }
 
 .tripSide {
-    padding: 1rem;
+    padding: rem;
     border: 2px solid rgb(255, 105, 105);
     border-radius: 24px;
     background: rgba(255, 0, 0, .18);
@@ -92,7 +92,9 @@ a{
     padding: 1.2rem;
     box-sizing: border-box;
 }
-
+.bookingCard h2{
+    font-size: 2rem;
+}
 .optionGrid {
     width: 100%;
     display: flex;
@@ -121,7 +123,7 @@ select,
 input[type="date"],
 .input {
     color: white;
-    width: 18rem;
+    width: 100%;
     box-sizing: border-box;
     background: rgba(255, 0, 0, .187);
     color: white;
@@ -250,7 +252,7 @@ input[type="date"],
 @media (min-width: 768px) {
     .todpBox{
         width: 40rem;
-        padding: 4% 8%;
+        padding: 14% 8%;
     }
 
     .trip1DayMain {
@@ -303,7 +305,7 @@ input[type="date"],
     }
     
     .bookingCard h2{
-        font-size: 15px;
+        font-size: 30px;
     }
     .optionGrid {
         flex-direction: row;
@@ -458,7 +460,7 @@ input[type="date"],
         max-width: 480px;
         height: 100%;
         border-radius: 28px;
-        padding: 34px;
+        padding: 14px;
         box-sizing: border-box;
         box-shadow: 0 30px 60px rgba(15, 23, 42, .12);
         display: flex;
@@ -538,7 +540,7 @@ input[type="date"],
     select,
     input[type="date"],
     .input {
-        width: 90%;
+        width: 100%;
         font-size: 16px;
         outline: none;
         transition: .25s;

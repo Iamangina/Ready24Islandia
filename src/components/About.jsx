@@ -11,30 +11,34 @@ import me2 from "../assets/images/phoMe.jpg"
 import me3 from "../assets/landscapes/land7.jpg"
 import vid from "../assets/videos/vid1.mp4"
 
+import { useTranslation } from "react-i18next";
+
 export default function About(){
+    
+    const { t } = useTranslation();
+
     return(
     <>
     <section className={styles.aboutPage}>
         <div className={styles.aboutBox}>
-            <p>Strona Główna &gt; O mnie</p>
-            <h1>O MNIE</h1>
-            <h2>"V" mam na imię Artur i zawodowo jeżdzę na quadzie w Islandii. Tworzę wyjazdy, które łączą adrenaline, piękne widoki i bezpieczeństwo.</h2>
+            <p>{t("about.p")}</p>
+            <h1>{t("about.h1")}</h1>
+            <h2>{t("about.h2")}</h2>
         </div>
-    </section>
+    </section> 
 
     <section className={styles.myStoryBox}>
-        <img src={me}></img>
+        <img src={me} className={styles.imgMe}></img>
         <div className={styles.myStory}>
-            <p>MOJA HISTORIA</p>
-            <h2>Jak zaczęła się moja przygoda z quadami na Islandii?</h2>
+            <p>{t("about.myStory.p")}</p>
+            <h2>{t("about.myStory.h2")}</h2>
             <p>
-                <span>Moja przygoda z quadami rozpoczęła się 5 lat temu właśnie tutaj, na Islandii. Początkowo pracowałem w jednej z komercyjnych firm, prowadząc proste wycieczki dla turystów, ale z czasem pojawiła się potrzeba stworzenia czegoś bardziej autentycznego — pokazania Islandii i jazdy na quadach tak, jak sam ją odbieram.
+                <span>{t("about.myStory.p1")}
                 </span>
-                <span>Islandia od początku zrobiła na mnie ogromne wrażenie swoją surową naturą, bezkresną przestrzenią i nieustanną zmiennością krajobrazów. To właśnie ta wyjątkowa sceneria stała się inspiracją do przekształcenia pasji w sposób na życie i tworzenia wyjazdów dla osób, które chcą odkrywać Islandię z zupełnie innej perspektywy — zza kierownicy quada.
-                Równolegle prowadzę treningi, dzięki którym stale doskonalę technikę jazdy i lepiej poznaję sprzęt, tak aby żaden podjazd, trawers czy trudny odcinek nie zatrzymywał nas w miejscu.
+                <span>{t("about.myStory.p2")}
                 </span>
                 <span>
-                Na co dzień mieszkam na Islandii i nieustannie eksploruję nowe trasy, sprawdzam warunki i dbam o to, by każdy wyjazd był bezpieczny, dynamiczny i przede wszystkim niezapomniany.
+                {t("about.myStory.p3")}
                 </span>
                 </p>
         </div>
@@ -43,42 +47,39 @@ export default function About(){
     <hr></hr>
 
     <section className={styles.valuesBox}>
-        <h2>Moje wartości</h2>
+        <h2>{t("about.values.h2")}</h2>
         <div className={styles.values}>
             <div className={styles.value}>
                 <img src={safety}></img>
-                <h3>Bezpieczeństwo przede wszystkim</h3>
-                <p>Stawiam na najwyższe standardy bezpieczeństwa, profesjonalny sprzęt i dokładnie szkolenia.</p>
+                <h3>{t("about.values.one.h3")}</h3>
+                <p>{t("about.values.one.p")}</p>
             </div>
             <div className={styles.value}>
                 <img src={people}></img>
-                <h3>Indywidualne podejście</h3>
-                <p>Małe grupy max.2 osoby</p>
+                <h3>{t("about.values.two.h3")}</h3>
+                <p>{t("about.values.two.p")}</p>
             </div>
             <div className={styles.value}>
                 <img src={mapIcon}></img>
-                <h3>Autentyczne doświadczenia</h3>
-                <p>Sprawdzone trasy, z dala od tłumów - tam, gdzie Islandia pokazuje swój prawdziwy charakter.</p>
+                <h3>{t("about.values.three.h3")}</h3>
+                <p>{t("about.values.three.p")}</p>
             </div>
             <div className={styles.value}>
                 <img src={smileIcon}></img>
-                <h3>Pasja i zaangażowanie</h3>
-                <p>To, co robię, jest moją pasją. Dzielę się wiedzą i chętnie odpowiem na wszystkie pytania dotyczące quadów czy Islandii.</p>
+                <h3>{t("about.values.four.h3")}</h3>
+                <p>{t("about.values.four.p")}</p>
             </div>
         </div>
     </section>
-
+ 
     <hr></hr>
 
     <section className={styles.aboutMe}>
         <div className={styles.aboutMeText}>
             <h2>
-                Poza quadami
+                {t("about.more.h2")}
             </h2>
-            <p>Poza quadami interesuję się szeroko pojętym sprzętem outdoorowym — testuję i sprawdzam jego praktyczność w realnych warunkach. 
-                Pasjonują mnie scyzoryki i noże, 
-                a także współprowadzę sklep internetowy z produktami Victorinox.
-                Dodatkowo prowadzę kanał na YouTube, gdzie dzielę się swoimi doświadczeniami i wiedzą związaną z quadami.</p>
+            <p>{t("about.more.p")}</p>
         </div>
         <div className={styles.aboutMePhotos}>
             <img src={me2}></img>
@@ -92,8 +93,8 @@ export default function About(){
         <hr></hr>
 
     <section className={styles.aboutMeQuestions}>
-                    <h1>Masz pytania?</h1>
-                    <p>Skontaktuj się ze mną, chętnie odpowiem na wszystkie pytania!</p>
+                    <h1>{t("about.questions.h1")}</h1>
+                    <p>{t("about.questions.p")}</p>
                     <p>ready24@ready24.is</p>
     </section>
     </>

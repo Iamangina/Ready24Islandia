@@ -11,7 +11,7 @@ hr {
     min-height: 45vh;
     background: url("../assets/landscapes/land3.jpg") center center / cover no-repeat;
     position: relative;
-}
+} 
 
 .trainingPage::after {
     content: "";
@@ -24,7 +24,7 @@ hr {
     position: relative;
     z-index: 2;
     max-width: 100%;
-    padding: 5rem 8% 3rem;
+    padding: 7rem 8%;
     text-shadow: 0 0 0.5em black;
 }
 

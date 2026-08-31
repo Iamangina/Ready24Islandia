@@ -18,7 +18,7 @@ option{
 
 .mainPage{
     display: block;
-}
+} 
 
 .btnMain{
     border: 0.125em solid rgb(255, 105, 105);
@@ -62,7 +62,7 @@ main{
     height: 100vh;
     object-fit: cover;
     z-index: -1;
-
+ 
     mask-image: linear-gradient(
         to top,
         transparent 10%,
@@ -96,14 +96,6 @@ main{
     font-size: 2.5em;
     font-weight: 700;
     margin: 0;
-}
-
-.mainTitle{
-    font-size: 0.45em;
-    text-align: center;
-    color: rgb(0, 0, 0);
-    text-shadow: 0 0 1px white;
-    line-height: .9em;
 }
 
 .mainTitle span{
@@ -275,7 +267,7 @@ main{
 
 .trip{
     width: 100%;
-    max-width: 18em;
+    max-width: 35em;
     height: 22em;
     position: relative;
     border-radius: 20px;

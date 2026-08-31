@@ -22,7 +22,8 @@ body {
 }
 
 .logo {
-    width: 140px;
+    width: 340px;
+    padding-top: .8rem;
 }
 
 /* HAMBURGER */
@@ -58,6 +59,13 @@ body {
 .link {
     color: white;
     text-decoration: none;
+}
+
+.languageBtn{
+    background: none;
+    border: none;
+    font-weight: 900;
+    color: white;
 }
 
 .rezerwacjaBtn {
